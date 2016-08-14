@@ -4,6 +4,16 @@ var config = require('./webpack.config');
 
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
+  stats: {
+    assets: false,
+    colors: true,
+    version: false,
+    hash: false,
+    timings: false,
+    chunks: false,
+    chunkModules: false
+  },
+  noInfo: false,
   hot: true,
   historyApiFallback: true
 }).listen(3000, 'localhost', function (err, result) {
